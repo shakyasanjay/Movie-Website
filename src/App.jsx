@@ -1,5 +1,5 @@
-import hero from "./assets/hero-img.png";
 import { useEffect, useState } from "react";
+import hero from "./assets/hero-img.png";
 import Search from "./components/Search.jsx";
 import Spinner from "./components/Spinner.jsx";
 import MovieCard from "./components/MovieCard.jsx";
@@ -64,14 +64,14 @@ const App = () => {
   };
 
   const loadTrendingMovies = async () => {
-    try{
+    try {
       const movies = await getTrendingMovies();
 
       setTrendingMovies(movies);
-    }catch(error){
+    } catch (error) {
       console.error(`Error fetching trending movies: ${error}`);
     }
-  }
+  };
 
   useEffect(() => {
     fetchMovies(debouncedSerarchTerm);
@@ -84,13 +84,12 @@ const App = () => {
   return (
     <main>
       <div className="pattern" />
-
       <div className="wrapper">
-        <header>
+        <header className="-mt-20">
           <img src={hero} alt="Hero banner" />
           <h1>
             Find <span className="text-gradient">Movies</span>You'll Enjoy
-            without the Hassle
+            without any Hassle
           </h1>
           <Search searchTerm={searchTerm} setsearchTerm={setsearchTerm} />
         </header>
